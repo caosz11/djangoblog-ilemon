@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}ilemon{% endblock %}
+    </title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+    <style>
+
+        html,body {
+            height: 100%;
+            /* The html and body elements cannot have any padding or margin. */
+            }
+
+        /* Wrapper for page content to push down footer */
+        #wrap {
+            min-height: 100%;
+            height: auto;
+            /* Negative indent footer by its height */
+            margin: 0 auto -60px;
+            /* Pad bottom by footer height */
+            padding: 0 0 60px;
+            #margin-left: 100px; /* 左边距 */
+         }
+
+
+        /* Custom page CSS
+        -------------------------------------------------- */
+        /* Not required for template or sticky footer method. */
+        .container {
+            width: auto;
+            #max-width: 680px;
+            height: auto;
+            padding: 0 15px;
+            #background-color: #FFAEB9;
+
+            }
+        .container .credit {
+            margin: 20px 0;
+            text-align:center;
+        }
+
+        body{
+            background-image:url("http://hansonsblog-img.stor.sinaapp.com/img/tbg.png"); /*background_picture*/
+        }
+
+         #footer {
+            height: 60px;
+            background-color:#212121;
+         }
+
+        #form_top{
+            display:block;
+            bottom:5px;
+            left:25px;
+            position:fixed;
+            #color: #ECD672;
+        }
+        .top_img {
+            background-image: url("http://hansonsblog-img.stor.sinaapp.com/img/topicon.png");
+            width: 50px;
+            height:50px;
+            cursor: pointer;
+        }
+        .top_img:hover {
+            background-image: url("http://hansonsblog-img.stor.sinaapp.com/img/topiconblack.png");
+        }
+
+
+        #ds-thread #ds-reset .ds-comments-info .ds-sort a {color: #009ACD;}
+        #ds-thread #ds-reset .ds-comment-body p {color: #212121;}
+        #ds-thread #ds-reset .ds-comment-body a {color: #009ACD !important;}
+        #ds-thread #ds-reset .ds-highlight{color: #009ACD !important;}
+        #ds-thread #ds-reset a.ds-like-thread-button span {
+            color: #009ACD;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    {% include "header.html" %}
+
+    {% block body %}
+    <div id="form_top"></div>
+    <div id="wrap">
+        <div class="container">
+            <!--<div class="row"> -->
+
+                <div class="col-md-8">
+                    <!--Body content-->
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {% block content %}
+                            {% endblock %}
+                        </dvi> <!-- panel-body -->
+                    </div> <!-- panel panle-default -->
+                </div>
+            </div> <!-- row -->
+            <!--<div class="row"> -->
+                <div class="col-md-4">
+                <div class="pin">
+                    <!--Sidebar content-->
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {% block aside %}
+                            {% include "aside.html" %}
+                            {% endblock %}
+                        </dvi> <!-- panel-body -->
+                    </div> <!-- panel panle-default -->
+                </div>
+                </div>
+            </div> <!-- row -->
+        </div><!-- container -->
+    </div> <!-- warp -->
+
+    {% endblock %}
+
+    {% block footer %}
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted credit">Copy Right © ilemon 2014 , Power by Django</p>
+        </div>
+    </div>
+    {%  endblock %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+</html>

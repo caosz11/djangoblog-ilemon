@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap -->
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="aside">
+         <div class="pinned">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">分类</h3>
+                </div>
+                <div class="panel-body">
+                    {% for category in categories %}
+                        <h5>
+                            <a href="{% url 'blog_category' category.slug %}">{{ category.name }}</a>
+                        </h5>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">标签</h3>
+                </div>
+                <div class="panel-body">
+                    {% for tag in tags %}
+                        <a href="{% url 'blog_tag' tag.slug %}" class="btn btn-sm btn-info">{{ tag.tag_name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            
+
+
+         </div>  <!-- pinned -->
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  </body>
+</html>

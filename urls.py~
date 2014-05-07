@@ -1,0 +1,19 @@
+from django.conf.urls import patterns, include, url
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'ilemon.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+)
+urlpatterns += patterns('views', url(r'^bloglist/$', 'blog_list', name='bloglist'),
+                       url(r'^blog/(?P<id>\d+)/$', 'blog_show', name='detailblog'),
+                       url(r'^blog/add/$', 'blog_add', name='addblog'),
+                       url(r'^blog/tag/(p<id>\d+)/$', 'blog_filter', name='filterblog'),
+                       url(r'^blog/(?P<id>\w+)/update/$', 'blog_update', name='updateblog'),
+                       url(r'^blog/(?P<id>\w+)/del/$', 'blog_del', name='delblog'),
+                       )
